@@ -1,0 +1,96 @@
+~include file="header.html" tit = $tit head=$head zzurl=$zzurl isvisitor=$isVisitor userinfo=$userinfo~~
+<title>应用管理 - ~$tit~~</title>~include file="head.html" tit = $tit head=$head zzurl=$zzurl isvisitor=$isVisitor userinfo=$userinfo~~
+<style type="text/css">
+</style>
+<div class="container">
+    <div class="well bs-component">
+        <h1>应用管理</h1>
+
+        <link href="~$zzurl~~content/themes/material/css/pgyer.css" rel="stylesheet">
+        <table class="table table-striped table-hover text-center myapps my_history pgy-table">
+        <tbody>~section loop=$filedata name=category~~
+        <tr class="my_history_row" appid="~$filedata[category].ckey~~" type="1">
+        <td class="clickable" style="width:100px;">
+        <img src="../plist/~$filedata[category].icon~~" class="appicon_s" onerror="javascript:this.src='../plist/default-icon.png';" style="margin-left:10px;" />
+        </td>
+        <td class="clickable text-left">
+        <div>
+        <a href="appdetail.php?key=~$filedata[category].ckey~~" class="appTitle">~$filedata[category].category~~</a>
+
+            ~if $filedata[category].type eq ipa~~
+                <span class="label-info label-ios"><i class="fa fa-apple" aria-hidden="true"></i> iOS </span>
+            ~else~~
+                <span class="label label-android"><i class="fa fa-android" aria-hidden="true"></i> Andriod </span>
+            ~/if~~
+
+        <span class="icon-link" style="margin:4px 7px 0 7px;font-size:12px;"></span>
+
+        </div>
+        <div class="version-info">
+        <span>
+        <i aria-hidden="true" class="fa fa-code-fork"></i>
+        ~$filedata[category].nversion~~
+        </span>
+
+        <span>
+        <i class="fa fa-clock-o" aria-hidden="true"></i> ~$filedata[category].lasttime~~</span>
+
+        </div>
+        </td>
+
+
+        <td nowrap style="width:200px;padding-right:20px;" class="text-right">
+        <span class="option-items">
+        <a href="javascript:void(0);" class="popovers"  style="color:#555" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content='<img style="margin-top:0px;margin-bottom:14px;border-radius:0;border:none" class="appicon" src="https://static.pgyer.com/app/qrcode/xj5n" />' data-original-title="" data-html='true' title="扫描二维码下载">
+        <i class="fa fa-qrcode" aria-hidden="true" style="color:#1ABC9C;"></i>
+        </a>
+        </span>
+        <span class="option-items">
+        <a href="/my/appEdit/de69da92479231cd6715eb663b7c4ee0">
+        <i class="fa fa-edit" aria-hidden="true"></i>
+        </a>
+        </span>
+
+        <div class="btn-group">
+        <a id="menu" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> </a>
+        <ul class="dropdown-menu dropdown-menu-right re_min">
+            <li><a target="_blank" href="appdetail.php?key=~$filedata[category].ckey~~"><i class="fa fa-eye"></i> 查看应用</a></li>
+            <li><a href="/my/appEdit/de69da92479231cd6715eb663b7c4ee0"><i class="fa fa-edit"></i> 编辑应用</a></li>
+            <li><a href="/my/appEdit/de69da92479231cd6715eb663b7c4ee0"><i class="fa fa-edit"></i> 删除应用</a></li>
+        </ul>
+        </div>
+        </td>
+
+
+            <td>~sectionelse~~ ~/section~~</td>
+        </tr>
+        </tbody>
+        </table>
+
+
+
+        <div class="row">
+            <div class="col-md-6"><br>~$jilu~~</div>
+            <div class="col-md-6"><nav>
+                <ul class="pagination pagination-sm"style="float:right;">
+                    <li>
+                        <a href="~$pre~~" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    ~$fy~~
+
+                    <li>
+                        <a href="~$ne~~" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav></div>
+        </div>
+    </div>~include file="footer.html" titm = $tit head=$head zzurl=$zzurl isvisitor=$isVisitor userinfo=$userinfo~~
+    <script type="text/javascript" src="~$zzurl~~content/themes/material/js/ZeroClipboard.js"></script>
+    <script language="JavaScript">
+        $("a[href='#").parent().addClass("active");
+    </script>

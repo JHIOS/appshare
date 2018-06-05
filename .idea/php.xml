@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="" phpunit_phar_path="" />
+      <phpunit_by_deployment server_id="41450fb6-4337-4f9b-8948-0d0b066ab52c" custom_loader_path="" phpunit_phar_path="" />
+    </phpunit_settings>
+  </component>
+</project>
